@@ -96,6 +96,7 @@ AbstractTask.blueprint do
   company
   project
   weight_adjustment { 0 }
+  position { 0 }
 end
 
 TaskRecord.blueprint do
