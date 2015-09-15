@@ -25,6 +25,11 @@ class TaskTemplatesController < TasksController
     redirect_to task_templates_path
   end
 
+  def reorder
+    params[:templates].values.each{ |template| t=AbstractTask.find(template[:id]); t.position_task_template=template[:position]; t.save!}
+    render :nothing=>true
+  end
+
 protected
 ####  This methods inherited from TasksController.
 ####  They modifies behavior of TasksController actions: new, create, edit, update etc.
