@@ -26,7 +26,11 @@ class TaskTemplatesController < TasksController
   end
 
   def reorder
-    params[:templates].values.each{ |template| t=AbstractTask.find(template[:id]); t.position_task_template=template[:position]; t.save!}
+    params[:templates].values.each do |template|
+      t=AbstractTask.find(template[:id])
+      t.position_task_template=template[:position]
+      t.save!
+    end
     render :nothing=>true
   end
 
